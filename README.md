@@ -8,21 +8,24 @@ $ tl [-dh] [-f FROM] [-t TO] TEXT
 
 ## Description
 
-`tl` is a minimalistic cli interface for google translate written in about 85 lines ofpure POSIX shell code, designed to be scriptable and composable, as a cli util should.
+`tl` is a minimalistic cli interface for google translate written in about 85 lines of pure POSIX shell code, designed to be scriptable and composable, as a cli util should.
 It translates the `TEXT` from language `FROM` to language `TO`, specified as ISO language code.
 
-`tl` is inspired by [Simple Translate]() web extension and by default translates `TEXT` according to 2 environment variables:
+`tl` is inspired by [Simple Translate](https://github.com/sienori/simple-translate) web extension and by default translates `TEXT` according to 2 environment variables:
 
 `TL_PRIMARY_TARGET_LANGUAGE`: the default `TO` language. If unset defaults to `en`.
+
 `TL_SECONDARY_TARGET_LANGUAGE`: the default `TO` language if the `FROM` language is detected to be same as `TL_PRIMARY_TARGET_LANGUAGE` by the API. If unset defaults to `fr`.
 
-Therefore, by default running `tl bonjour` or `tl hallo` will output translation in english (`en`) as `FROM` language is detected to be `fr` and `de` accordingly, but `tl hello`, will output translation in french (`fr`), because it is detected to already be in `TL_PRIMARY_TARGET_LANGUAGE` (`en`), so `TL_SECONDARY_TARGET_LANGUAGE` is used.
+Therefore, by default running `tl bonjour` or `tl hallo` will output translation in english (`en`) as `FROM` language is detected to be `fr` and `de` accordingly, but `tl hello` will output translation in french (`fr`), because it is detected to already be in `TL_PRIMARY_TARGET_LANGUAGE` (`en`), so `TL_SECONDARY_TARGET_LANGUAGE` is used instead.
 
 The output format of `tl` is one of the following:
 1. When the argument is a sentence or a long text, print the translation.
 2. When the argument is a single word or a common phrase, print the following columns:
+
 `SPEECH_PART TRANSLATION_VARIANT REVERSE_TRANSLATIONS`
-where `SPEECH_PART` is speech part of translation variant of this row, `TRANSLATION_VARIANT` is a variant of a translation to the target language of the row, and `REVERSE_TRANSLATIONS` is a comma-separated list of reverse translations of that translation variant.
+
+where `SPEECH_PART` is speech part of translation variant of the row, `TRANSLATION_VARIANT` is a variant of a translation to the target language of the row, and `REVERSE_TRANSLATIONS` is a comma-separated list of reverse translations of that translation variant.
 
 ## Options
 
