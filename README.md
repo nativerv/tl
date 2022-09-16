@@ -36,6 +36,11 @@ where `SPEECH_PART` is speech part of translation variant of the row, `TRANSLATI
  -d         enable debug mode (run `set -x`)
 ```
 
+## Dependencies
+
+- `curl`
+- `jq`
+
 ## Examples
 
 Translate a sentence:
