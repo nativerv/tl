@@ -11,6 +11,7 @@ tl:
 install:
 	mkdir -p ${DESTDIR}${PREFIX}/bin
 	cp tl ${DESTDIR}${PREFIX}/bin/tl
+	chmod 755 ${DESTDIR}${PREFIX}/bin/tl
 
 uninstall:
 	rm -f ${DESTDIR}${PREFIX}/bin/tl
