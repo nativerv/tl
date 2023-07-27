@@ -30,10 +30,11 @@ where `SPEECH_PART` is speech part of translation variant of the row, `TRANSLATI
 ## Options
 
 ```console
- -f FROM    source language [DEFAULT: auto (autodetected by the API)]
- -t TO      target language [DEFAULT: ${TL_PRIMARY_TARGET_LANGUAGE}]
- -h         show this message and exit
- -d         enable debug mode (run `set -x`)
+  -f FROM    source language [DEFAULT: auto (autodetected by the API)]
+  -t TO      target language [DEFAULT: ${TL_PRIMARY_TARGET_LANGUAGE}]
+  -s         output a single translation
+  -h         show this message and exit
+  -d         enable debug mode (run `set -x`)
 ```
 
 ## Dependencies
