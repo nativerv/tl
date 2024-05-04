@@ -51,7 +51,7 @@ done
 shift $(( OPTIND - 1 ))
 
 # Guard for no text to translate
-[ -z "${1}" ] && print_usage && exit 1
+[ $# -eq 0 ] && print_usage && exit 1
 
 text="${*}"
 from="${from:-"auto"}"
