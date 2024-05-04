@@ -50,10 +50,7 @@ while getopts 'hdsf:t:' flag; do
 done
 shift $(( OPTIND - 1 ))
 
-# Guard for no text to translate
-[ -z "${1}" ] && print_usage && exit 1
-
-text="${*}"
+text="${*-"$(cat)"}"
 from="${from:-"auto"}"
 to="${to:-"${TL_PRIMARY_TARGET_LANGUAGE}"}"
 
@@ -75,7 +72,7 @@ fi
 
 # Text case
 if [ "$(printf '%s' "${response}" | jq -r '.dict')" = 'null' ] || [ "${single-}" = true ]; then
-  printf '%s' "${response}" | jq -r '.sentences[].trans'
+  printf '%s' "${response}" | jq -r '.sentences[]?.trans'
 
 # Word case
 else
