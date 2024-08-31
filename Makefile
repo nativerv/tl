@@ -10,7 +10,7 @@ tl:
 
 install:
 	mkdir -p ${DESTDIR}${PREFIX}/bin
-	cp tl ${DESTDIR}${PREFIX}/bin/tl
+	install -m 755 tl -t ${DESTDIR}${PREFIX}/bin
 	chmod 755 ${DESTDIR}${PREFIX}/bin/tl
 
 uninstall:
